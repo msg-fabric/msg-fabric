@@ -1,7 +1,7 @@
 {
   "name": "msg-fabric",
   "version": "0.1.0",
-  "description": "",
+  "description": "Distributed live object messaging",
   "license": "BSD-2-Clause",
   "author": "Shane Holloway <shane.holloway@ieee.org>",
   "homepage": "https://github.com/shanewholloway/msg-fabric#readme",
@@ -47,6 +47,8 @@
     "build": "rollup --config",
     "watch": "npm -s run build -- --watch",
     "pretest": "npm -s run build",
+    "demo:node": "babel-node test/server-node.jsy",
+    "demo:browser": "babel-node test/server-browser.jsy",
     "test": "true"
   }
 }
