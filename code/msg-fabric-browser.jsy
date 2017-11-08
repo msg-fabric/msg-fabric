@@ -1,0 +1,7 @@
+import MessageHub from 'msg-fabric-core'
+import router_plugin from 'msg-fabric-core/dist/plugin-router-browser.mjs'
+
+const Hub = MessageHub.plugin @
+  router_plugin()
+
+export default Hub

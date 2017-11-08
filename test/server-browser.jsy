@@ -1,0 +1,36 @@
+require('source-map-support').install()
+
+import {URL} from 'url'
+import {TextEncoder, TextDecoder} from 'util'
+Object.assign @ global, @:
+  URL, TextDecoder, TextEncoder
+
+import Hub from '../dist/msg-fabric-browser'
+
+async function main_demo() ::
+  try ::
+    const hub = new Hub()
+
+    hub.router.registerTarget @ 123, (msg, router) => ::
+      const header = msg.header_json()
+      const body = msg.body_json()
+      console.log @ 'target got message!', @: header, body
+
+
+    const channel = await hub.connect_self()
+    channel.sendJSON @:
+      id_router: hub.router.id_self
+      id_target: 123
+      body: 'self-echo message works'
+
+    return true
+  catch err ::
+    console.error(err)
+    return false
+
+
+if module === require.main ::
+  main_demo()
+
+  process.on @ 'unhandledRejection', (reason, p) => ::
+    console.log @ 'Unhandled Rejection at:', p, 'reason:', reason

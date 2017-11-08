@@ -1,0 +1,10 @@
+import MessageHub from 'msg-fabric-core'
+import router_plugin from 'msg-fabric-core/dist/plugin-router-node.mjs'
+import {tls, tcp} from 'msg-fabric-core/dist/plugin-net.mjs'
+
+const Hub = MessageHub.plugin @
+  router_plugin()
+  tcp()
+  tls()
+
+export default Hub
