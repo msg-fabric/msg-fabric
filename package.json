@@ -1,6 +1,6 @@
 {
   "name": "msg-fabric",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "description": "Distributed live object messaging",
   "license": "BSD-2-Clause",
   "author": "Shane Holloway <shane.holloway@ieee.org>",
@@ -34,9 +34,10 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-jsy": "^0.9.2",
-    "msg-fabric-core": "^0.2.0",
-    "msg-fabric-packet-stream": "^0.2.0",
-    "rollup": "^0.50.1",
+    "msg-fabric-core": "github:shanewholloway/msg-fabric-core",
+    "msg-fabric-endpoint": "github:shanewholloway/msg-fabric-endpoint",
+    "msg-fabric-packet-stream": "github:shanewholloway/msg-fabric-packet-stream",
+    "rollup": "^0.52.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-node-resolve": "^3.0.0"
   },

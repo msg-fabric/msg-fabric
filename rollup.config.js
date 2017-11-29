@@ -3,7 +3,7 @@ import rpi_resolve from 'rollup-plugin-node-resolve'
 
 const sourcemap = 'inline'
 
-const external = ['crypto', 'url']
+const external = ['crypto', 'url', 'stream', 'net', 'tls']
 
 const plugins = [jsy_plugin(), rpi_resolve({module: true, jsnext: true})]
 

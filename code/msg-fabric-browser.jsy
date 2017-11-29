@@ -1,7 +1,8 @@
-import MessageHub from 'msg-fabric-core'
-import router_plugin from 'msg-fabric-core/dist/plugin-router-browser.mjs'
+import Hub from 'msg-fabric-core'
+import endpoint from 'msg-fabric-endpoint/dist/browser.mjs'
+import router from 'msg-fabric-core/dist/plugin-router-browser.mjs'
+// TODO import {websocket} from '???'
 
-const Hub = MessageHub.plugin @
-  router_plugin()
-
-export default Hub
+export default Hub.plugin @
+  endpoint()
+  router()
