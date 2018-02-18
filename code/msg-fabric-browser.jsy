@@ -1,8 +1,14 @@
-import Hub from 'msg-fabric-core'
-import endpoint from 'msg-fabric-endpoint/dist/browser.mjs'
-import router from 'msg-fabric-core/dist/plugin-router-browser.mjs'
-// TODO import {websocket} from '???'
+import Hub from 'msg-fabric-core/esm'
+import platform from 'msg-fabric-core/esm/plugin-platform-browser.js'
+import pkt from 'msg-fabric-core/esm/plugin-pkt-browser.js'
+import msgs from 'msg-fabric-core/esm/plugin-msgs.js'
 
-export default Hub.plugin @
-  endpoint()
-  router()
+//import endpoint from 'msg-fabric-endpoint/esm/browser.js'
+
+// TODO websocket, eventstream, webrtc, ajax
+
+export default Hub.plugin(
+  platform(), pkt(), msgs(),
+
+  //endpoint()
+)

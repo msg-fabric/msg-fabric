@@ -23,33 +23,27 @@
     "passing"
   ],
   "files": [
-    "dist/",
-    "code/",
-    "test/"
+    "cjs/",
+    "esm/",
+    "umd/"
   ],
-  "main": "dist/msg-fabric-node",
-  "module": "dist/msg-fabric-node.mjs",
-  "browser": "dist/msg-fabric-browser.umd.js",
+  "main": "cjs/msg-fabric-node.js",
+  "module": "esm/msg-fabric-node.js",
+  "browser": "umd/msg-fabric.js",
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-jsy": "^0.9.2",
-    "msg-fabric-core": "github:shanewholloway/msg-fabric-core",
-    "msg-fabric-endpoint": "github:shanewholloway/msg-fabric-endpoint",
-    "msg-fabric-packet-stream": "github:shanewholloway/msg-fabric-packet-stream",
-    "rollup": "^0.52.0",
-    "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-node-resolve": "^3.0.0"
-  },
-  "babel": {
-    "presets": "jsy/lean"
+    "msg-fabric-core": "file:../msg-fabric-core",
+    "msg-fabric-endpoint": "file:../msg-fabric-endpoint",
+    "rollup": "^0.56.0",
+    "rollup-plugin-node-resolve": "^3.0.3",
+    "rollup-plugin-uglify": "^3.0.0",
+    "uglify-es": "^3.3.10"
   },
   "scripts": {
+    "clean": "rm cjs/* esm/* umd/* dist/*",
     "build": "rollup --config",
     "watch": "npm -s run build -- --watch",
     "pretest": "npm -s run build",
-    "demo:node": "babel-node test/server-node.jsy",
-    "demo:browser": "babel-node test/server-browser.jsy",
     "test": "true"
   }
 }

@@ -1,11 +1,15 @@
 import Hub from 'msg-fabric-core'
-import endpoint from 'msg-fabric-endpoint/dist/nodejs.mjs'
-import router from 'msg-fabric-core/dist/plugin-router-node.mjs'
-import {tls, tcp, direct} from 'msg-fabric-core/dist/plugin-net.mjs'
+import platform from 'msg-fabric-core/esm/plugin-platform-node.js'
+import pkt from 'msg-fabric-core/esm/plugin-pkt-node.js'
+import msgs from 'msg-fabric-core/esm/plugin-msgs.js'
 
-export default Hub.plugin @
-  endpoint()
-  router()
-  tcp()
-  tls()
-  direct()
+import {tls, tcp, direct} from 'msg-fabric-core/esm/plugin-net-all.js'
+
+//import endpoint from 'msg-fabric-endpoint/esm/nodejs.js'
+
+export default Hub.plugin(
+  platform(), pkt(), msgs(),
+  tcp(), tls(), direct(),
+
+  //endpoint()
+)

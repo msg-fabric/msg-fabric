@@ -1,1 +1,5 @@
 package-lock.json
+dist/
+cjs/
+esm/
+umd/
