@@ -27,12 +27,13 @@ export default [
 		output: [
       { file: `cjs/browser.js`, format: 'cjs', sourcemap },
       { file: `esm/browser.js`, format: 'es', sourcemap },
+      { file: `umd/msg-fabric.js`, format: 'umd', sourcemap, name:'msg-fabric' },
     ],
     external: [], plugins },
 
     prod_plugins &&
       { input: 'code/browser.jsy',
-        output: { file: pkg.browser, name:'msg-fabric', format: 'umd' },
+        output: { file: pkg.browser, format: 'umd', name:'msg-fabric' },
         external: [], plugins: prod_plugins },
 ].filter(e => e)
 

@@ -1,4 +1,4 @@
-import Hub from 'msg-fabric-core/esm'
+import Hub from 'msg-fabric-core/esm/core-browser'
 import endpoint from 'msg-fabric-endpoint/esm'
 
 export default Hub.plugin(
