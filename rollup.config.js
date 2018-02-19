@@ -1,13 +1,17 @@
 import pkg from './package.json'
 import {minify} from 'uglify-es'
 import rpi_uglify from 'rollup-plugin-uglify'
+import rpi_gzip from "rollup-plugin-gzip"
 import rpi_resolve from 'rollup-plugin-node-resolve'
 
 const sourcemap = 'inline'
 const plugins = [rpi_resolve({module: true, jsnext: true})]
 
 const ugly = { warnings: true, output: {comments: false, max_line_len: 256}}
-const prod_plugins = plugins.concat([rpi_uglify(ugly, minify)])
+const prod_plugins = plugins.concat([
+  rpi_uglify(ugly, minify),
+  rpi_gzip({ options: {level: 9 } }),
+])
 
 export default [
 	{ input: 'code/msg-fabric-node.jsy',
