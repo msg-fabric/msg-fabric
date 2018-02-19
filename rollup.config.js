@@ -14,23 +14,25 @@ const prod_plugins = plugins.concat([
 ])
 
 export default [
-	{ input: 'code/msg-fabric-node.jsy',
+	{ input: 'code/node.jsy',
 		output: [
       { file: pkg.main, format: 'cjs', sourcemap },
       { file: pkg.module, format: 'es', sourcemap },
+      { file: `cjs/node.js`, format: 'cjs', sourcemap },
+      { file: `esm/node.js`, format: 'es', sourcemap },
     ],
     external: ['crypto', 'url', 'stream', 'net', 'tls'], plugins },
 
-	{ input: 'code/msg-fabric-browser.jsy',
+	{ input: 'code/browser.jsy',
 		output: [
-      { file: `cjs/msg-fabric-browser.js`, format: 'cjs', sourcemap },
-      { file: `esm/msg-fabric-browser.js`, format: 'es', sourcemap },
+      { file: `cjs/browser.js`, format: 'cjs', sourcemap },
+      { file: `esm/browser.js`, format: 'es', sourcemap },
     ],
     external: [], plugins },
 
     prod_plugins &&
-      { input: 'code/msg-fabric-browser.jsy',
-        output: { file: pkg.browser, name:'msg-fabric', format: 'umd', sourcemap },
+      { input: 'code/browser.jsy',
+        output: { file: pkg.browser, name:'msg-fabric', format: 'umd' },
         external: [], plugins: prod_plugins },
 ].filter(e => e)
 

@@ -4,8 +4,7 @@ import {tls, tcp, direct} from 'msg-fabric-core/esm/plugin-net-all'
 import endpoint from 'msg-fabric-endpoint/esm'
 
 export default Hub.plugin(
-  platform(), pkt(), msgs(),
   tcp(), tls(), direct(),
 
-  endpoint()
+  endpoint(),
 )
