@@ -1,5 +1,7 @@
 # msg-fabric
 
+DEPRECATED package -- use [msg-fabric-core](https://github.com/msg-fabric/msg-fabric-core)
+
 Inspired by:
 - Alan Kay's vision of messaging between objects in [Smalltalk](https://en.wikipedia.org/wiki/Smalltalk#Messages)
 - [Erlang](http://erlang.org/doc/reference_manual/distributed.html) distributed messaging
